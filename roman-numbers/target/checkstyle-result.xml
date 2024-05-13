@@ -1,6 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="9.3">
-<file name="/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/src/main/java/it/unipd/mtss/App.java">
-<error line="1" severity="error" message="Line does not match expected header line of &apos;/*///////////////////////////////////////////////////////////////////&apos;." source="com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheck"/>
-</file>
 </checkstyle>
