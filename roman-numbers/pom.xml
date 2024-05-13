@@ -11,18 +11,20 @@
   <name>roman-number</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
-
+  <!--  -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source><!-- aggiornato dalla 1.7 -->
+    <maven.compiler.target>1.8</maven.compiler.target><!-- aggiornato dalla 1.7 -->
+    <checkstyle.header.file>header.txt</checkstyle.header.file>
+
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version><!-- aggiornato dalla 4.11 -->
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -80,7 +82,32 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <!-- checkstile per la commit #2 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+          <failsOnError>true</failsOnError>
+          <configLocation>checkstyle.xml</configLocation>
+          <consoleOutput>true</consoleOutput>
+          <headerLocation>${project.basedir}/${checkstyle.header.file}</headerLocation>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>checkstyle</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- checkstile per la commit #2 -->
+    </plugins>
   </build>
 </project>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.AppTest" time="0.02" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.AppTest" time="0.028" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/scanferla27/Desktop/mtss_assignment2/roman-number/target/test-classes:/Users/scanferla27/Desktop/mtss_assignment2/roman-number/target/classes:/Users/scanferla27/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/scanferla27/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.class.path" value="/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/target/test-classes:/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/target/classes:/Users/scanferla27/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/scanferla27/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
@@ -12,10 +12,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IT"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/scanferla27/Desktop/mtss_assignment2/roman-number/target/surefire/surefirebooter17571830771891683301.jar /Users/scanferla27/Desktop/mtss_assignment2/roman-number/target/surefire 2024-05-11T15-14-42_282-jvmRun1 surefire14161750615438222116tmp surefire_01026272159717301881tmp"/>
+    <property name="sun.java.command" value="/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/target/surefire/surefirebooter17947725621020823248.jar /Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/target/surefire 2024-05-13T22-37-16_468-jvmRun1 surefire3449916917130645490tmp surefire_012440989743935584367tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/scanferla27/Desktop/mtss_assignment2/roman-number/target/test-classes:/Users/scanferla27/Desktop/mtss_assignment2/roman-number/target/classes:/Users/scanferla27/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/scanferla27/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/target/test-classes:/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/target/classes:/Users/scanferla27/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/scanferla27/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/scanferla27"/>
     <property name="user.language" value="it"/>
@@ -23,13 +23,13 @@
     <property name="java.version.date" value="2022-09-20"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/Users/scanferla27/Desktop/mtss_assignment2/roman-number"/>
+    <property name="basedir" value="/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/scanferla27/Desktop/mtss_assignment2/roman-number/target/surefire/surefirebooter17571830771891683301.jar"/>
+    <property name="surefire.real.class.path" value="/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers/target/surefire/surefirebooter17947725621020823248.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="19+36-2238"/>
@@ -44,7 +44,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/var/folders/k8/w3nv3wj94_d1_8v3jl9fbwq00000gn/T/"/>
     <property name="java.version" value="19"/>
-    <property name="user.dir" value="/Users/scanferla27/Desktop/mtss_assignment2/roman-number"/>
+    <property name="user.dir" value="/Users/scanferla27/Desktop/met/prova/Roman_MTSS2/roman-numbers"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="native.encoding" value="UTF-8"/>
