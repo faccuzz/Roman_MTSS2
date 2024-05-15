@@ -15,6 +15,6 @@
     <module name="LineLength"/>
     <module name="FileTabCharacter"/>
     <module name="Header">
-        <property name="headerFile" "${checkstyle.header.file}"/>
-    </module>
+    <property name="headerFile" value="${checkstyle.header.file}"/>
+</module>
 </module>
