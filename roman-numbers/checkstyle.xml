@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!--<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
-        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">-->
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
 <module name="Checker">
     <module name="TreeWalker">
         <module name="BooleanExpressionComplexity"/>
@@ -15,6 +15,6 @@
     <module name="LineLength"/>
     <module name="FileTabCharacter"/>
     <module name="Header">
-        <property name="headerFile" value="header.txt"/>
+        <property name="headerFile" "${checkstyle.header.file}"/>
     </module>
 </module>
