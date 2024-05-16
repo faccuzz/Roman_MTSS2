@@ -14,13 +14,16 @@ jobs:
     - name: Build with Maven and update README.md
       run: |
         #Report Build
-        mvn -B install --file roman-numbers/pom.xml | tee README.md
+        echo "# Report Build" > README.md
+        mvn -B install --file roman-numbers/pom.xml | tee -a README.md
         #Report Analisi Statica
-        echo "# Report Analisi Statica #" >> README.md
+        echo "\n# Report Analisi Statica" >> README.md
         mvn checkstyle:checkstyle | tee -a README.md
         #Report Code Coverage
-        echo "# Report Code Coverage #" >> README.md
+        echo "\n# Report Code Coverage" >> README.md
         mvn jacoco:report | tee -a README.md
+    - name: Commit Changes
+      uses: EndBug/add-and-commit@v7
       with:
         author_name: GitHub Actions
         author_email: actions@github.com
