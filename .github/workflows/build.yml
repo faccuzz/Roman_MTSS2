@@ -21,7 +21,6 @@ jobs:
         #Report Code Coverage
         echo "# Report Code Coverage #" >> README.md
         mvn jacoco:report | tee -a README.md
-      uses: EndBug/add-and-commit@v7
       with:
         author_name: GitHub Actions
         author_email: actions@github.com
