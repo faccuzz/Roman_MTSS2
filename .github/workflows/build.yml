@@ -23,10 +23,9 @@ jobs:
         echo "\n# Report Code Coverage" >> README.md
         mvn jacoco:report | tee -a README.md
     - name: Commit Changes
-      uses: EndBug/add-and-commit@v7
-      with:
-        author_name: GitHub Actions
-        author_email: actions@github.com
-        message: "Build and update README.md"
-        add: README.md
-        push: true
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git add README.md
+        git commit -m "Build and update README.md"
+        git push https://${{ secrets.GH_PAT }}@github.com/faccuzz/Roman_MTSS2.git HEAD:main
