@@ -11,5 +11,20 @@ jobs:
           distribution: 'temurin'
           java-version: 8.0.332+9
           cache: 'maven'
-    - name: Build with Maven
-      run: mvn -B install --file roman-numbers/pom.xml
+    - name: Build with Maven and update README.md
+      run: |
+        #Report Build
+        mvn -B install --file roman-numbers/pom.xml | tee README.md
+        #Report Analisi Statica
+        echo "# Report Analisi Statica #" >> README.md
+        mvn checkstyle:checkstyle | tee -a README.md
+        #Report Code Coverage
+        echo "# Report Code Coverage #" >> README.md
+        mvn jacoco:report | tee -a README.md
+      uses: EndBug/add-and-commit@v7
+      with:
+        author_name: GitHub Actions
+        author_email: actions@github.com
+        message: "Build and update README.md"
+        add: README.md
+        push: true
