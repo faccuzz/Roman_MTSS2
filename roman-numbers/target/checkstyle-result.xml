@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="9.3">
-<file name="/Users/scanferla27/Desktop/prova_15_05/Roman_MTSS2/roman-numbers/src/main/java/it/unipd/mtss/IntegerToRoman.java">
-<error line="21" column="5" severity="error" message="Cyclomatic Complexity is 17 (max allowed is 10)." source="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck"/>
+<file name="/Users/marcoscanferla/Roman_MTSS2/roman-numbers/src/main/java/it/unipd/mtss/IntegerToRoman.java">
+</file>
+<file name="/Users/marcoscanferla/Roman_MTSS2/roman-numbers/src/main/java/it/unipd/mtss/App.java">
 </file>
 </checkstyle>

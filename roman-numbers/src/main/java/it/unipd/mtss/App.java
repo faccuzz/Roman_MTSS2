@@ -11,7 +11,7 @@ package it.unipd.mtss;
  */
 public class App {
     public static void main( String[] args ){
-        int numero=0;
+        int numero=596;// solo per prova
         IntegerToRoman  integerToRoman= new IntegerToRoman();
         String numeroRomano =integerToRoman.convert(numero);
         System.out.println(numeroRomano);
