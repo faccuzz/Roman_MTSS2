@@ -13,19 +13,21 @@ jobs:
           cache: 'maven'
     - name: Build with Maven and update README.md
       run: |
+        cd roman-numbers
         #Report Build
         echo "# Report Build" > README.md
-        mvn -B install --file roman-numbers/pom.xml | tee -a README.md
+        mvn -B install --file pom.xml | tee -a README.md
         #Report Analisi Statica
         echo "\n# Report Analisi Statica" >> README.md
         mvn checkstyle:checkstyle | tee -a README.md
+        cd ..
         #Report Code Coverage
         echo "\n# Report Code Coverage" >> README.md
         mvn jacoco:report | tee -a README.md
     - name: Commit Changes
       run: |
-        git config --local user.email "davidefacco12.19@gmail.com"
-        git config --local user.name "faccuzz"
+        git config --local user.email "actions@github.com"
+        git config --local user.name "Github Actions"
         git add README.md
         git commit -m "Build and update README.md"
-        git push https://github.com/faccuzz/Roman_MTSS2.git HEAD:main
+        git push https://${{ secrets.PAT_ACCESS }}@github.com/faccuzz/Roman_MTSS2.git HEAD:main
