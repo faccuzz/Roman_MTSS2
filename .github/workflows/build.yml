@@ -14,8 +14,8 @@ jobs:
     - name: Preconfiguration
       run: |
         mkdir -p logs
-        apt-get update
-        apt-get install -y bsdmainutils
+        sudo apt-get update
+        sudo apt-get install -y bsdmainutils
     - name: Build with Maven
       run: |
         cd roman-numbers
