@@ -3,8 +3,6 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: maven:3.8.1-openjdk-11
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 1.8
