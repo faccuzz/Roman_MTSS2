@@ -11,6 +11,11 @@ jobs:
         distribution: 'temurin'
         java-version: 8.0.332+9
         cache: 'maven'
+    - name: Preconfiguration
+      run: |
+        mkdir -p logs
+        apt-get update
+        apt-get install -y bsdmainutils
     - name: Build with Maven
       run: |
         cd roman-numbers
@@ -23,10 +28,6 @@ jobs:
       run: |
         cd roman-numbers
         mvn jacoco:report
-    - name: Install column command
-      run: |
-        apt-get update
-        apt-get install -y bsdmainutils
     - name: Upload Result on README.md
       run: |
         sed -i '' 's/\[INFO\] //g' logs/build.log
