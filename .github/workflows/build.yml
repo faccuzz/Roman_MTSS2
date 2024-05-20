@@ -34,19 +34,28 @@ jobs:
         sed -i 's/\[INFO\] //g' logs/build.log
         sed -i 's/\[INFO\] //g' logs/checkstyle.log
         
-        echo "# Build Results\n" > README.md
+        echo "# Build Results" > README.md
+        echo "" >> README.md
         lineNum=$(grep -n -m 1 "T E S T S" "logs/build.log" | cut -d: -f1)
         endLineNum=$(grep -n -m 1 "Results:" "logs/build.log" | cut -d: -f1)
         awk -v start="$lineNum" -v end="$endLineNum" 'NR>=start-1 && NR<=end+2' "logs/build.log" >> "README.md"
         lineNum=$(grep -n -m 1 "BUILD" "logs/build.log" | cut -d: -f1)
         awk -v n="$lineNum" 'NR>=n-1' "logs/build.log" >> "README.md"
+        echo "" >> README.md
         
-        echo "\n# Checkstyle Results\n" >> README.md
+        echo "" >> README.md
+        echo "# Checkstyle Results" >> README.md
+        echo "" >> README.md
         lineNum=$(grep -n -m 1 "Starting audit..." "logs/checkstyle.log" | cut -d: -f1)
-        awk -v n="$lineNum" 'NR>=n-1' "logs/checkstyle.log" >> "README.md"
+        awk -v n="$lineNum" 'NR>=n' "logs/checkstyle.log" >> "README.md"
+        echo "" >> README.md
         
-        echo "\n# Code Coverage Results\n" >> README.md
-        awk -F',' 'BEGIN {print "GROUP PACKAGE CLASS INSTRUCTION_MISSED INSTRUCTION_COVERED"; print "----- ------- ----- ------------------ ------------------"}; NR>1 {print $1, $2, $3, $4, $5}' roman-numbers/target/site/jacoco/jacoco.csv | column -t >> README.md
+        echo "" >> README.md
+        echo "# Code Coverage Results" >> README.md
+        echo "" >> README.md
+        echo "| GROUP | PACKAGE | CLASS | INSTRUCTION_MISSED | INSTRUCTION_COVERED |" >> README.md
+        echo "| ----- | ------- | ----- | ------------------ | ------------------ |" >> README.md
+        awk -F',' 'NR>1 {printf("| %s | %s | %s | %s | %s |\n", $1, $2, $3, $4, $5)}' roman-numbers/target/site/jacoco/jacoco.csv >> README.md
     - name: Commit Changes
       run: |
         git config --local user.email "actions@github.com"

@@ -7,14 +7,27 @@ import it.unipd.mtss.IntegerToRoman;
 
 public class RomanPrinter {
 
+    /*
+    * PRE: num >= 0
+    * POST: ritorna l'ascii art del numero romano corrispondente a num
+    * */
     public static String print(int num){
         return printAsciiArt(IntegerToRoman.convert(num));
     }
 
+    /*
+    * PRE: romanNumber è una stringa contenente un numero romano
+    * POST: ritorna l'ascii art di romanNumber
+    * */
     private static String printAsciiArt(String romanNumber){
         int romanHeight = 6;
         StringBuilder romanAscii = new StringBuilder();
 
+        /*
+        * Questo for cicla per ciascuna riga dell'ascii art in maniera tale che
+        * se il numero romano contiene più caratteri riesca a stamparli
+        * uno di fianco all'altro
+        * */
         for(int i = 0; i < romanHeight; i++){
             for(int j = 0; j < romanNumber.length(); j++){
                 switch(romanNumber.charAt(j)) {
@@ -46,6 +59,10 @@ public class RomanPrinter {
         return romanAscii.toString();
     }
 
+    /*
+    * PRE: i è il numero della riga dell'ascii art
+    * POST: ritorna la i-esima riga dell'ascii art del numero romano I
+    * */
     private static String printI(int i){
         switch(i){
             case 0:
@@ -65,6 +82,10 @@ public class RomanPrinter {
         }
     }
 
+    /*
+    * PRE: i è il numero della riga dell'ascii art
+    * POST: ritorna la i-esima riga dell'ascii art del numero romano V
+    * */
     private static String printV(int i){
         switch(i){
             case 0:
@@ -84,6 +105,10 @@ public class RomanPrinter {
         }
     }
 
+    /*
+    * PRE: i è il numero della riga dell'ascii art
+    * POST: ritorna la i-esima riga dell'ascii art del numero romano X
+    * */
     private static String printX(int i){
         switch(i){
             case 0:
@@ -103,6 +128,10 @@ public class RomanPrinter {
         }
     }
 
+    /*
+    * PRE: i è il numero della riga dell'ascii art
+    * POST: ritorna la i-esima riga dell'ascii art del numero romano L
+    * */
     private static String printL(int i){
         switch(i){
             case 0:
@@ -122,6 +151,10 @@ public class RomanPrinter {
         }
     }
 
+    /*
+    * PRE: i è il numero della riga dell'ascii art
+    * POST: ritorna la i-esima riga dell'ascii art del numero romano C
+    * */
     private static String printC(int i){
         switch(i){
             case 0:
@@ -141,6 +174,10 @@ public class RomanPrinter {
         }
     }
 
+    /*
+    * PRE: i è il numero della riga dell'ascii art
+    * POST: ritorna la i-esima riga dell'ascii art del numero romano D
+    * */
     private static String printD(int i){
         switch(i){
             case 0:
@@ -160,6 +197,10 @@ public class RomanPrinter {
         }
     }
 
+    /*
+    * PRE: i è il numero della riga dell'ascii art
+    * POST: ritorna la i-esima riga dell'ascii art del numero romano M
+    * */
     private static String printM(int i){
         switch(i){
             case 0:
