@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RomanPrinter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">roman-number</a> &gt; <a href="index.source.html" class="el_package">it.unipd.mtss</a> &gt; <span class="el_source">RomanPrinter.java</span></div><h1>RomanPrinter.java</h1><pre class="source lang-java linenums">package it.unipd.mtss;
+import it.unipd.mtss.IntegerToRoman;
+
+<span class="fc" id="L4">public class RomanPrinter {</span>
+
+    public static String print(int num){
+<span class="fc" id="L7">        return printAsciiArt(IntegerToRoman.convert(num));</span>
+    }
+
+    private static String printAsciiArt(String romanNumber){
+<span class="fc" id="L11">        int romanHeight = 6;</span>
+<span class="fc" id="L12">        StringBuilder romanAscii = new StringBuilder();</span>
+
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        for(int i = 0; i &lt; romanHeight; i++){</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">            for(int j = 0; j &lt; romanNumber.length(); j++){</span>
+<span class="pc bpc" id="L16" title="1 of 8 branches missed.">                switch(romanNumber.charAt(j)) {</span>
+                    case 'I':
+<span class="fc" id="L18">                        romanAscii.append(printI(i));</span>
+<span class="fc" id="L19">                        break;</span>
+                    case 'V':
+<span class="fc" id="L21">                        romanAscii.append(printV(i));</span>
+<span class="fc" id="L22">                        break;</span>
+                    case 'X':
+<span class="fc" id="L24">                        romanAscii.append(printX(i));</span>
+<span class="fc" id="L25">                        break;</span>
+                    case 'L':
+<span class="fc" id="L27">                        romanAscii.append(printL(i));</span>
+<span class="fc" id="L28">                        break;</span>
+                    case 'C':
+<span class="fc" id="L30">                        romanAscii.append(printC(i));</span>
+<span class="fc" id="L31">                        break;</span>
+                    case 'D':
+<span class="fc" id="L33">                        romanAscii.append(printD(i));</span>
+<span class="fc" id="L34">                        break;</span>
+                    case 'M':
+<span class="fc" id="L36">                        romanAscii.append(printM(i));</span>
+                        break;
+                }
+            }
+<span class="fc" id="L40">            romanAscii.append(&quot;\n&quot;);</span>
+        }
+<span class="fc" id="L42">        return romanAscii.toString();</span>
+    }
+
+    private static String printI(int i){
+<span class="pc bpc" id="L46" title="1 of 7 branches missed.">        switch(i){</span>
+            case 0:
+<span class="fc" id="L48">                return &quot;  _____ &quot;;</span>
+            case 1:
+<span class="fc" id="L50">                return &quot; |_   _|&quot;;</span>
+            case 2:
+<span class="fc" id="L52">                return &quot;   | |  &quot;;</span>
+            case 3:
+<span class="fc" id="L54">                return &quot;   | |  &quot;;</span>
+            case 4:
+<span class="fc" id="L56">                return &quot;  _| |_ &quot;;</span>
+            case 5:
+<span class="fc" id="L58">                return &quot; |_____|&quot;;</span>
+            default:
+<span class="nc" id="L60">                return &quot;&quot;;</span>
+        }
+    }
+
+    private static String printV(int i){
+<span class="pc bpc" id="L65" title="1 of 7 branches missed.">        switch(i){</span>
+            case 0:
+<span class="fc" id="L67">                return &quot; __      __&quot;;</span>
+            case 1:
+<span class="fc" id="L69">                return &quot; \\ \\    / /&quot;;</span>
+            case 2:
+<span class="fc" id="L71">                return &quot;  \\ \\  / / &quot;;</span>
+            case 3:
+<span class="fc" id="L73">                return &quot;   \\ \\/ /  &quot;;</span>
+            case 4:
+<span class="fc" id="L75">                return &quot;    \\  /   &quot;;</span>
+            case 5:
+<span class="fc" id="L77">                return &quot;     \\/    &quot;;</span>
+            default:
+<span class="nc" id="L79">                return &quot;&quot;;</span>
+        }
+    }
+
+    private static String printX(int i){
+<span class="pc bpc" id="L84" title="1 of 7 branches missed.">        switch(i){</span>
+            case 0:
+<span class="fc" id="L86">                return &quot; __   __&quot;;</span>
+            case 1:
+<span class="fc" id="L88">                return &quot; \\ \\ / /&quot;;</span>
+            case 2:
+<span class="fc" id="L90">                return &quot;  \\ V / &quot;;</span>
+            case 3:
+<span class="fc" id="L92">                return &quot;   &gt; &lt;  &quot;;</span>
+            case 4:
+<span class="fc" id="L94">                return &quot;  / . \\ &quot;;</span>
+            case 5:
+<span class="fc" id="L96">                return &quot; /_/ \\_\\&quot;;</span>
+            default:
+<span class="nc" id="L98">                return &quot;&quot;;</span>
+        }
+    }
+
+    private static String printL(int i){
+<span class="pc bpc" id="L103" title="1 of 7 branches missed.">        switch(i){</span>
+            case 0:
+<span class="fc" id="L105">                return &quot;  _      &quot;;</span>
+            case 1:
+<span class="fc" id="L107">                return &quot; | |     &quot;;</span>
+            case 2:
+<span class="fc" id="L109">                return &quot; | |     &quot;;</span>
+            case 3:
+<span class="fc" id="L111">                return &quot; | |     &quot;;</span>
+            case 4:
+<span class="fc" id="L113">                return &quot; | |____ &quot;;</span>
+            case 5:
+<span class="fc" id="L115">                return &quot; |______|&quot;;</span>
+            default:
+<span class="nc" id="L117">                return &quot;&quot;;</span>
+        }
+    }
+
+    private static String printC(int i){
+<span class="pc bpc" id="L122" title="1 of 7 branches missed.">        switch(i){</span>
+            case 0:
+<span class="fc" id="L124">                return &quot;   _____ &quot;;</span>
+            case 1:
+<span class="fc" id="L126">                return &quot;  / ____|&quot;;</span>
+            case 2:
+<span class="fc" id="L128">                return &quot; | |     &quot;;</span>
+            case 3:
+<span class="fc" id="L130">                return &quot; | |     &quot;;</span>
+            case 4:
+<span class="fc" id="L132">                return &quot; | |____ &quot;;</span>
+            case 5:
+<span class="fc" id="L134">                return &quot;  \\_____|&quot;;</span>
+            default:
+<span class="nc" id="L136">                return &quot;&quot;;</span>
+        }
+    }
+
+    private static String printD(int i){
+<span class="pc bpc" id="L141" title="1 of 7 branches missed.">        switch(i){</span>
+            case 0:
+<span class="fc" id="L143">                return &quot;  _____  &quot;;</span>
+            case 1:
+<span class="fc" id="L145">                return &quot; |  __ \\ &quot;;</span>
+            case 2:
+<span class="fc" id="L147">                return &quot; | |  | |&quot;;</span>
+            case 3:
+<span class="fc" id="L149">                return &quot; | |  | |&quot;;</span>
+            case 4:
+<span class="fc" id="L151">                return &quot; | |__| |&quot;;</span>
+            case 5:
+<span class="fc" id="L153">                return &quot; |_____/ &quot;;</span>
+            default:
+<span class="nc" id="L155">                return &quot;&quot;;</span>
+        }
+    }
+
+    private static String printM(int i){
+<span class="pc bpc" id="L160" title="1 of 7 branches missed.">        switch(i){</span>
+            case 0:
+<span class="fc" id="L162">                return &quot;  __  __ &quot;;</span>
+            case 1:
+<span class="fc" id="L164">                return &quot; |  \\/  |&quot;;</span>
+            case 2:
+<span class="fc" id="L166">                return &quot; | \\  / |&quot;;</span>
+            case 3:
+<span class="fc" id="L168">                return &quot; | |\\/| |&quot;;</span>
+            case 4:
+<span class="fc" id="L170">                return &quot; | |  | |&quot;;</span>
+            case 5:
+<span class="fc" id="L172">                return &quot; |_|  |_|&quot;;</span>
+            default:
+<span class="nc" id="L174">                return &quot;&quot;;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
