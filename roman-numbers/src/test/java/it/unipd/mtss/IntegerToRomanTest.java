@@ -1,7 +1,8 @@
 
 package it.unipd.mtss;
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterAll;
 
 public class IntegerToRomanTest {
  @Test
@@ -28,13 +29,12 @@ IntegerToRoman.convert(0));
         assertEquals("Invalid number", 
 IntegerToRoman.convert(-10));
     }
-    /*
+
     @AfterAll
-    public void allTestsCompleted() {
-        System.out.println("All tests completed successfully. 
-Everything is OK.");
+    public static void allTestsCompleted() {
+        System.out.println("All tests completed successfully. Everything is OK.");
     }
-    */
+
 
 
 }

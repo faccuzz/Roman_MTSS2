@@ -4,6 +4,7 @@
 ///////////////////////////////////////////////////////////////////*/
 
 package it.unipd.mtss;
+import it.unipd.mtss.RomanPrinter;
 
 /**
  * Hello world!
@@ -11,10 +12,7 @@ package it.unipd.mtss;
  */
 public class App {
     public static void main( String[] args ){
-        int numero=596;// solo per prova
-        IntegerToRoman  integerToRoman= new IntegerToRoman();
-        String numeroRomano =integerToRoman.convert(numero);
-        System.out.println(numeroRomano);
-
+        int numero=798;// solo per prova
+        System.out.println(RomanPrinter.print(numero));
     }
 }
