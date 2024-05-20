@@ -16,20 +16,16 @@ jobs:
         mkdir -p logs
         sudo apt-get update
         sudo apt-get install -y bsdmainutils
+        cd roman-numbers
     - name: Build with Maven
-      run: |
-        cd roman-numbers
-        mvn -B install --file pom.xml | tee ../logs/build.log
+      run: mvn -B install --file pom.xml | tee ../logs/build.log
     - name: Static Analysis
-      run: |
-        cd roman-numbers
-        mvn checkstyle:checkstyle | tee ../logs/checkstyle.log
+      run: mvn checkstyle:checkstyle | tee ../logs/checkstyle.log
     - name: Code Coverage
-      run: |
-        cd roman-numbers
-        mvn jacoco:report
+      run: mvn jacoco:report
     - name: Upload Result on README.md
       run: |
+        cd ..
         sed -i '' 's/\[INFO\] //g' logs/build.log
         sed -i '' 's/\[INFO\] //g' logs/checkstyle.log
         
