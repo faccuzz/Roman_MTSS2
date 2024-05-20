@@ -30,7 +30,6 @@ jobs:
         mvn jacoco:report
     - name: Upload Result on README.md
       run: |
-        
         sed -i 's/\[INFO\] //g' logs/build.log
         sed -i 's/\[INFO\] //g' logs/checkstyle.log
         
@@ -38,17 +37,27 @@ jobs:
         echo "" >> README.md
         lineNum=$(grep -n -m 1 "T E S T S" "logs/build.log" | cut -d: -f1)
         endLineNum=$(grep -n -m 1 "Results:" "logs/build.log" | cut -d: -f1)
-        awk -v start="$lineNum" -v end="$endLineNum" 'NR>=start-1 && NR<=end+2' "logs/build.log" >> "README.md"
+        awk -v start="$lineNum" -v end="$endLineNum" 'NR>=start-1 && NR<=end+2' "logs/build.log" >> "README.md" | while read line
+        do
+            echo $line >> README.md
+            echo "" >> README.md
+        done
         lineNum=$(grep -n -m 1 "BUILD" "logs/build.log" | cut -d: -f1)
-        awk -v n="$lineNum" 'NR>=n-1' "logs/build.log" >> "README.md"
-        echo "" >> README.md
+        awk -v n="$lineNum" 'NR>=n-1' "logs/build.log" >> "README.md" | while read line
+        do
+            echo $line >> README.md
+            echo "" >> README.md
+        done
         
         echo "" >> README.md
         echo "# Checkstyle Results" >> README.md
         echo "" >> README.md
         lineNum=$(grep -n -m 1 "Starting audit..." "logs/checkstyle.log" | cut -d: -f1)
-        awk -v n="$lineNum" 'NR>=n' "logs/checkstyle.log" >> "README.md"
-        echo "" >> README.md
+        awk -v n="$lineNum" 'NR>=n' "logs/checkstyle.log" >> "README.md" | while read line
+        do
+            echo $line >> README.md
+            echo "" >> README.md
+        done
         
         echo "" >> README.md
         echo "# Code Coverage Results" >> README.md
