@@ -3,31 +3,55 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: maven:3.8.1-openjdk-11
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 1.8
       uses: actions/setup-java@v3
       with:
-          distribution: 'temurin'
-          java-version: 8.0.332+9
-          cache: 'maven'
-    - name: Build with Maven and update README.md
+        distribution: 'temurin'
+        java-version: 8.0.332+9
+        cache: 'maven'
+    - name: Build with Maven
       run: |
         cd roman-numbers
-        #Report Build
-        echo "# Report Build" > README.md
-        mvn -B install --file pom.xml | tee -a README.md
-        #Report Analisi Statica
-        echo "\n# Report Analisi Statica" >> README.md
-        mvn checkstyle:checkstyle | tee -a README.md
-        cd ..
-        #Report Code Coverage
-        echo "\n# Report Code Coverage" >> README.md
-        mvn jacoco:report | tee -a README.md
+        mvn -B install --file pom.xml | tee ../logs/build.log
+    - name: Static Analysis
+      run: |
+        cd roman-numbers
+        mvn checkstyle:checkstyle | tee ../logs/checkstyle.log
+    - name: Code Coverage
+      run: |
+        cd roman-numbers
+        mvn jacoco:report
+    - name: Install column command
+      run: |
+        apt-get update
+        apt-get install -y bsdmainutils
+    - name: Upload Result on README.md
+      run: |
+        sed -i '' 's/\[INFO\] //g' logs/build.log
+        sed -i '' 's/\[INFO\] //g' logs/checkstyle.log
+        
+        echo "# Build Results\n" > README.md
+        lineNum=$(grep -n -m 1 "T E S T S" "logs/build.log" | cut -d: -f1)
+        endLineNum=$(grep -n -m 1 "Results:" "logs/build.log" | cut -d: -f1)
+        awk -v start="$lineNum" -v end="$endLineNum" 'NR>=start-1 && NR<=end+2' "logs/build.log" >> "README.md"
+        lineNum=$(grep -n -m 1 "BUILD" "logs/build.log" | cut -d: -f1)
+        awk -v n="$lineNum" 'NR>=n-1' "logs/build.log" >> "README.md"
+        
+        echo "\n# Checkstyle Results\n" >> README.md
+        lineNum=$(grep -n -m 1 "Starting audit..." "logs/checkstyle.log" | cut -d: -f1)
+        awk -v n="$lineNum" 'NR>=n-1' "logs/checkstyle.log" >> "README.md"
+        
+        echo "\n# Code Coverage Results\n" >> README.md
+        awk -F',' 'BEGIN {print "GROUP PACKAGE CLASS INSTRUCTION_MISSED INSTRUCTION_COVERED"; print "----- ------- ----- ------------------ ------------------"}; NR>1 {print $1, $2, $3, $4, $5}' roman-numbers/target/site/jacoco/jacoco.csv | column -t >> README.md
     - name: Commit Changes
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "Github Actions"
         git add README.md
-        git commit -m "Build and update README.md"
+        git commit -m "Update README.md"
         git push https://${{ secrets.PAT_ACCESS }}@github.com/faccuzz/Roman_MTSS2.git HEAD:main
+        
